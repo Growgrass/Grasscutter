@@ -76,7 +76,7 @@ public class ConfigContainer {
         public DataStore game = new DataStore();
 
         public static class DataStore {
-            public String connectionUri = "mongodb://localhost:27017";
+            public String connectionUri = "mongodb://mongodb:27017";
             public String collection = "grasscutter";
         }
     }
