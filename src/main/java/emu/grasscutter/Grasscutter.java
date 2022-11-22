@@ -271,8 +271,10 @@ public final class Grasscutter {
     public static void startConsole() {
         // Console should not start in dispatch only mode.
         if (SERVER.runMode == ServerRunMode.DISPATCH_ONLY) {
+            catch (EndOfFileException e) { if(input.length()!=0){ Grasscutter.getLogger().info("EOF detected."); } continue; };
             getLogger().info(translate("messages.dispatch.no_commands_error"));
             return;
+            
         }
 
         getLogger().info(translate("messages.status.done"));
