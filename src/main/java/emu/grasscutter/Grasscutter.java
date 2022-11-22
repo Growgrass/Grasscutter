@@ -271,7 +271,6 @@ public final class Grasscutter {
     public static void startConsole() {
         // Console should not start in dispatch only mode.
         if (SERVER.runMode == ServerRunMode.DISPATCH_ONLY) {
-            catch (EndOfFileException e) { if(input.length()!=0){ Grasscutter.getLogger().info("EOF detected."); } continue; };
             getLogger().info(translate("messages.dispatch.no_commands_error"));
             return;
             
@@ -291,9 +290,6 @@ public final class Grasscutter {
                 } else {
                     Runtime.getRuntime().exit(0);
                 }
-            } catch (EndOfFileException e) {
-                Grasscutter.getLogger().info("EOF detected.");
-                continue;
             } catch (IOError e) {
                 Grasscutter.getLogger().error("An IO error occurred while trying to read from console.", e);
                 return;
